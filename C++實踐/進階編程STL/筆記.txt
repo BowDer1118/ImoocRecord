@@ -1,0 +1,13 @@
+STL標準函式庫
+    1.容器Container分兩類
+        1.序列式容器(Sequence Containers):可以排序
+            實作有:vector list deque
+                vector隨機索引快 隨機插入刪除慢
+                list隨機插入刪除快 隨機索引慢
+                deque 前後插入快 隨機索引快 (是vector與list的綜合概念)
+        2.關聯式容器(Associative Containers):鍵值對(key-value pair)概念
+            實作有:set multiset map multimap
+                set的key-value是相同的
+                multiset的key可以不唯一
+                map表達字典的概念一個key對應一個value
+                multimap可以讓一個key對應到多個value
