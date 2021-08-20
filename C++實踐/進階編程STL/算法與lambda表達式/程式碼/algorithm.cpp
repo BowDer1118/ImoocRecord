@@ -61,7 +61,7 @@ int main() {
         回傳值是1 代表查找到 0代表沒有查找到
     */
     int len = sizeof(arr) / sizeof(arr[1]);
-    int findResult = binary_search(arr, arr + len, 8);
+    bool findResult = binary_search(arr, arr + len, 8);
     if (findResult) {
         cout << "Find 8 in array" << endl;
     } else {
@@ -74,6 +74,7 @@ int main() {
         返回 第一次再容器中 找到子序列的第一個位置
     */
     vector<int> v(arr + 2, arr + 5);  //使用arr[2]~arr[4]當作子序列
+    vector<int>::iterator pos;
     int *pos = search(arr, arr + len, v.begin(), v.end());
     cout << *pos << endl;
 }
