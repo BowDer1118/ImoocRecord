@@ -40,6 +40,9 @@
         3.不定序容器(Unordered containers):只在意 特定元素是否存在 在於群集中，而不在乎 位置與排序
             通常 hash table 實作
             優點:搜尋特定的物件 速度可能比關聯式容器更快，取決於hash function的設計
+            STL提供以下template class
+            1.unordered set 與 unordered multiset 定義在<unordered_set>
+            2.unordered map 與 unordered multimap 定義在<unordered_map>
         [思考]關聯式容器因為會自動完成排序過程，因此在 搜尋 動作時 時間複雜度是較低的(對數級別)，可以直接進行binary search
         4.容器適配器(adapter)
             1.Stack:使用FILO
@@ -117,47 +120,3 @@
             6.c.cbegin();           //回傳指向第一個元素位置的const_iterator
             7.c.end();              //回傳最後一個元素後一個位置的iterator
             8.c.cend();             //回傳最後一個元素後一個位置的const_iterator
-    7.3 Vector
-        1.Construtor與Destructor
-            vector<Elem> c           //創建空的vector
-            vector<Elem> c(n)        //創造出大小為n的vector
-            vector<Elem> c(n,elem)   //創造出大小為n的vector 每個元素值都是elem
-            vector<Elem> c(initlist) //創造vector並加入initlist中的元素
-            vector<Elem> c=initlist //創造vector並加入initlist中的元素
-        2.Assignment
-            此系列操作會移除所有Construtor所初始化的元素 也就是會呼叫c.clear()
-            並依照asssign()加入元素
-            c.assign(n,elem)       //複製n個elem並加入到vector中
-            c.assign(begin,end)    //複製[begin,end)區段的元素到vector中
-            c.assign(initlist)     //將initlist中的元素加入到vector中
-        3.Access
-            c[index]              //回傳vector中索引值為index的元素(不會進行範圍檢查)--->可能產生Runtime Error(RE)
-            c.at(index)           //回傳vector中索引值為index的元素(進行範圍檢查)
-            c.front()             //回傳vector中第一個元素(不檢查是否存在)--->可能產生Runtime Error(RE)
-            c.back()              //回傳vector中最後一個元素(不檢查是否存在)--->可能產生Runtime Error(RE)
-        4.Iterator
-            回傳iterator物件
-            c.begin()
-            c.end()
-            回傳const_iterator物件
-            c.cbegin()
-            c.cend()
-            回傳reverse_iterator物件
-            c.rbegin()
-            c.rend()
-            回傳const_reverse_iterator物件
-            c.crbegin()
-            c.crend()
-        5.其他操作
-            pos代表iterator物件
-            c.push_back(elem)      //從尾部插入elem
-            c.pop_back()           //移除最後一個元素
-            c.insert(pos,elem)     //從pos位置的前方插入elem並回傳插入後的位置(elem的位置)
-            c.insert(pos,n,elem)   //從pos前方插入n個elem物件並回傳插入後最前方的位置(第一個插入後的elem)
-            c.insert(pos,begin,end)//從pos前方插入[begin,end)並回傳插入後第一個元素位置
-            c.insert(pos,initlist) //從pos前方插入initlist中的元素 並回傳插入後第一個元素位置
-            c.emplace(pos,args)    //從pos前方插入 以args為構造參數的物件
-            c.emplace(args)        //從尾部插入 以args為構造參數的物件
-            c.erase(pos)           //移除pos指向的物件並返回刪除後的下一個元素位置
-            c.erase(begin,end)     //移除[begin,end)區段的物件 並返回刪除後下一個元素的位置
-            c.clear()              //清空所有元素
