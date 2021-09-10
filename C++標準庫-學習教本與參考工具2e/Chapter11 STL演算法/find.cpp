@@ -27,7 +27,7 @@ using namespace std;
     複雜度:線性
 
     [補充]
-    1.如果搜尋範圍是已序空間則應使用lower_bound() upper_bound() equal_range() 或者是binary_search() 
+    1.如果搜尋範圍是 已序空間(Sorted Range) 則應使用lower_bound() upper_bound() equal_range() 或者是binary_search() 
       效能會更好
     2.Associative和unordered容器有提供成員函式find() 效率會比使用std::find()更好
         AssociativeContainer.find() 複雜度:對數等級
@@ -67,22 +67,5 @@ int main() {
     } else {
         cout << "Not Found" << endl;
     }
-
-    v.clear();
-    set<int> s;
-    unordered_set<int> uns;
-    int n = 1000000;
-    srand(time(NULL));
-    for (int i = 0; i < n; i++) {
-        int temp = rand();
-        v.emplace_back(temp);
-        s.emplace(temp);
-        uns.emplace(temp);
-    }
-    int search = rand();
-    auto start = clock();
-    find(v.begin(), v.end(), search);
-    auto end = clock();
-    cout << double(end - start) << endl;
     return 0;
 }

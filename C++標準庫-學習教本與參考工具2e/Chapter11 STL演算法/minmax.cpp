@@ -43,6 +43,7 @@ int main() {
     cout << minValue << endl;
     cout << maxValue << endl;
 
+    //auto會自動推導成 pair<deque<int>::iterator, deque<int>::iterator>
     // auto pair = minmax_element(q.begin(), q.end());
     auto pair = minmax_element(q.begin(), q.end(), [](const int a, const int b) -> bool { return a < b; });
     minValue = *pair.first;
