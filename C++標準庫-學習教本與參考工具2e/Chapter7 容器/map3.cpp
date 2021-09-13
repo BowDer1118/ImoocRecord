@@ -23,7 +23,7 @@ int main() {
     map<Student, int, decltype(compare)> map(compare);
     map.insert({{"Peter", 18}, 1});
     map[{"Mary", 30}] = 2;
-    map.insert({{"Tom", 21}, 3});
+    map.emplace(Student("Tom", 21), 3);
 
     for (auto st : map) {  //auto 會自動推導成pair<Student,int>
         cout << st.first << endl;
